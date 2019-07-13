@@ -39,6 +39,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "FFXIV Collect Helper";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClose);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 
         }
