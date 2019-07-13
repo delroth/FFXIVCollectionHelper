@@ -1,0 +1,4 @@
+[submodule "Externals/Machina"]
+	path = Externals/Machina
+	url = https://github.com/ravahn/machina
+	branch = NetworkStructs

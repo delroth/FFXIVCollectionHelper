@@ -86,5 +86,15 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Externals\Machina\Machina.FFXIV\Machina.FFXIV.csproj">
+      <Project>{4303e4f0-4c90-44eb-90c2-691451fe49e7}</Project>
+      <Name>Machina.FFXIV</Name>
+    </ProjectReference>
+    <ProjectReference Include="Externals\Machina\Machina\Machina.csproj">
+      <Project>{2681c607-a075-4070-be13-34f0a395119e}</Project>
+      <Name>Machina</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
