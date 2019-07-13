@@ -28,10 +28,13 @@ namespace FFXIVCollectHelper
         }
         private void OnMessageReceived(string connection, long timestamp, byte[] data)
         {
-            PlayerSetupInfo? info = PlayerSetupInfo.ParseOrNull(data);
+            PlayerSetupInfo info = PlayerSetupInfo.ParseOrNull(data);
             if (info != null)
             {
-                Trace.WriteLine("GameMonitor: received PlayerSetup packet");
+                Trace.WriteLine(string.Format("GameMonitor: received PlayerSetup packet for player {0}", info.PlayerName));
+                Trace.WriteLine(string.Format("Bardings ({0}): {1}", info.AcquiredBardings.Count, string.Join(",", info.AcquiredBardings)));
+                Trace.WriteLine(string.Format("Mounts ({0}): {1}", info.AcquiredMounts.Count, string.Join(",", info.AcquiredMounts)));
+                Trace.WriteLine(string.Format("Orchestrions ({0}): {1}", info.AcquiredOrchestrions.Count, string.Join(",", info.AcquiredOrchestrions)));
             }
         }
     }
