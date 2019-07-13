@@ -16,6 +16,9 @@ namespace FFXIVCollectHelper
     {
         private readonly FFXIVNetworkMonitor monitor = new FFXIVNetworkMonitor();
 
+        public delegate void OnPlayerSetupInfoReceived(PlayerSetupInfo info);
+        public OnPlayerSetupInfoReceived PlayerSetupInfoReceived;
+
         public void Start()
         {
             monitor.MessageReceived = OnMessageReceived;
@@ -35,6 +38,8 @@ namespace FFXIVCollectHelper
                 Trace.WriteLine(string.Format("Bardings ({0}): {1}", info.AcquiredBardings.Count, string.Join(",", info.AcquiredBardings)));
                 Trace.WriteLine(string.Format("Mounts ({0}): {1}", info.AcquiredMounts.Count, string.Join(",", info.AcquiredMounts)));
                 Trace.WriteLine(string.Format("Orchestrions ({0}): {1}", info.AcquiredOrchestrions.Count, string.Join(",", info.AcquiredOrchestrions)));
+
+                PlayerSetupInfoReceived?.Invoke(info);
             }
         }
     }
