@@ -28,7 +28,11 @@ namespace FFXIVCollectHelper
         }
         private void OnMessageReceived(string connection, long timestamp, byte[] data)
         {
-            Trace.WriteLine("GameMonitor: received packet (ts: " + timestamp + ")");
+            PlayerSetupInfo? info = PlayerSetupInfo.ParseOrNull(data);
+            if (info != null)
+            {
+                Trace.WriteLine("GameMonitor: received PlayerSetup packet");
+            }
         }
     }
 }
